@@ -17,6 +17,7 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
 	@Override
 	public SkiRun findById(int skiRunId) {
 		return em.find(SkiRun.class, skiRunId);
@@ -26,7 +27,8 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 	@Override
 	public List<SkiRun> findAll() {
 		String jpql = "SELECT s FROM SkiRun s";
-		return em.createQuery(jpql, SkiRun.class).getResultList();
+		return em.createQuery(jpql, SkiRun.class)
+				.getResultList();
 	}
 
 }
