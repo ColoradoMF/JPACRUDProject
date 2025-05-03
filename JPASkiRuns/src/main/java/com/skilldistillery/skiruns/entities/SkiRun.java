@@ -80,7 +80,7 @@ public class SkiRun {
 		this.rating = rating;
 	}
 
-	public Boolean isLiftAccess() {
+	public Boolean getLiftAccess() {
 		return liftAccess;
 	}
 

@@ -30,5 +30,37 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 		return em.createQuery(jpql, SkiRun.class)
 				.getResultList();
 	}
+	
+	@Override
+	public SkiRun create(SkiRun skirun) {
+		em.persist(skirun);
+		return skirun;
+	}
+	
+	@Override
+	public SkiRun updatedSkiRun(int Id, SkiRun skiRun) {
+		SkiRun managedSkiRun = em.find(SkiRun.class, Id);
+		managedSkiRun.setName(skiRun.getName());
+		managedSkiRun.setArea(skiRun.getArea());
+		managedSkiRun.setImageUrl(skiRun.getImageUrl());
+		managedSkiRun.setVertical(skiRun.getVertical());
+		managedSkiRun.setRating(skiRun.getRating());
+		managedSkiRun.setLiftAccess(skiRun.getLiftAccess());
+		managedSkiRun.setDescription(skiRun.getDescription());
+		managedSkiRun.setLatitude(skiRun.getLatitude());
+		managedSkiRun.setLongitude(skiRun.getLongitude());
+		managedSkiRun.setState(skiRun.getState());
+		managedSkiRun.setCountry(skiRun.getCountry());
+		
+		return managedSkiRun;
+	}
+	
+	@Override
+	public void deletedSkiRun(int Id) {
+		SkiRun managedSkiRun = em.find(SkiRun.class, Id);		
+		
+		em.remove(managedSkiRun);
+		
+	}
 
 }

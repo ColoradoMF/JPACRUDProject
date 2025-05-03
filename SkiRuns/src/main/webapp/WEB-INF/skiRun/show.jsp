@@ -13,7 +13,7 @@
 	<main class="container-fluid">
 	<a href="home.do">Ski Run Favs Home</a>
 	<c:choose>
-		<c:when test="${not empty film}">
+		<c:when test="${not empty skiRun}">
 			<h3>Deets for the ski run:</h3>
 			<hr>
 			<ul>

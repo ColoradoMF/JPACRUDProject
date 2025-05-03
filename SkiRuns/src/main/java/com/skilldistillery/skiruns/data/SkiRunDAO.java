@@ -8,5 +8,8 @@ public interface SkiRunDAO {
 	
 	SkiRun findById(int skiRunId);
 	List<SkiRun> findAll();
+	SkiRun create(SkiRun skirun);
+	SkiRun updatedSkiRun(int Id, SkiRun skirun);
+	void deletedSkiRun(int Id);
 
 }

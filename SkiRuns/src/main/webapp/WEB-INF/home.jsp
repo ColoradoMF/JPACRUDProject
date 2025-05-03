@@ -21,7 +21,7 @@
 		<h1>Favorite Ski Runs</h1>
 
 		<form action="getSkiRun.do" method="GET">
-			Film ID: <input class="btn-info" type="text" name="skiRunId" required />
+			Lookup by Ski Run ID #: <input class="btn-info" type="text" name="skiRunId" required />
 			<input type="submit" value="Show SkiRun" />
 		</form>
 		<hr>

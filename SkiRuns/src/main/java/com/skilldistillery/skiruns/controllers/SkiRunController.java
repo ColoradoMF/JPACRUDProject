@@ -28,6 +28,7 @@ public class SkiRunController {
 	@RequestMapping(path = "getSkiRun.do", method = RequestMethod.GET)
 	public String showSkiRun(Model model, @RequestParam("skiRunId") int skiRunId) {
 		SkiRun foundSkiRun = skiRunDao.findById(skiRunId);
+		System.out.println(foundSkiRun);
 		model.addAttribute("skiRun", foundSkiRun);
 		return "skiRun/show";
 
