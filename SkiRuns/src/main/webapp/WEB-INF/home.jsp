@@ -20,19 +20,19 @@
 
 		<h1>Favorite Ski Runs Site</h1>
 		<hr>
-		<h4>See a Ski Run by ID # or keyword</h4>
+		<h4>See a Ski Run by ID # or keyword search</h4>
 		<form action="getSkiRun.do" method="GET">
 			<input class="btn-info" type="text" name="skiRunId"	required /> 
-			<input type="submit" value="ID# Search for a Ski Run" />
+			<input type="submit" value="Enter ID# of a Ski Run" />
 		</form>
 		<form action="getSkiRunKeyword.do" method="GET">
 			<input class="btn-info" type="text" name="skiRunKeyword" required />
-			<input type="submit" value="Keyword Search for a Ski Run" />
+			<input type="submit" value="Enter Keyword for a Ski Run" />
 		</form>
 
 
 		<hr>
-		<h4>Favorite Ski Runs</h4>
+		<h4>Favorite Ski Runs List:</h4>
 		<table class="table table-striped table-hover">
 			<thead class="table-dark">
 				<tr>
@@ -59,7 +59,7 @@
 		<hr>
 
 		</form>
-		<h2>Add a new favorite Ski Run</h2>
+		<h3>Add a new Ski Run:</h3>
 		<form action="addSkiRun.do" method="POST">
 			<table>
 				<tr>
@@ -70,34 +70,34 @@
 					<td><label for="description">Add Description:</label></td>
 					<td><input type="text" name="description"></td>
 				</tr>
-				<!-- <tr>
-					<td><label for="year">Add Year:</label></td>
-					<td><input type="number" name="year"></td>
-				</tr>
 				<tr>
 					<td><label for="rating">Add Rating:</label></td>
 					<td><input type="text" name="rating"></td>
 				</tr>
 				<tr>
-					<td><label for="languageId">Add Language:</label></td>
-					<td><input type="number" name="languageId"></td>
+					<td><label for="area">Add Area:</label></td>
+					<td><input type="area" name="area"></td>
 				</tr>
 				<tr>
-					<td><label for="rentalRate">Add Rental Rate:</label></td>
-					<td><input type="number" name="rentalRate"></td>
+					<td><label for="state">Add State:</label></td>
+					<td><input type="state" name="state"></td>
 				</tr>
 				<tr>
-					<td><label for="rentalDuration">Add Rental Duration:</label></td>
-					<td><input type="number" name="rentalDuration"></td>
+					<td><label for="country">Add Country:</label></td>
+					<td><input type="country" name="country"></td>
 				</tr>
 				<tr>
-					<td><label for="replacementCost">Add Replacement Cost:</label></td>
-					<td><input type="number" name="replacementCost"></td>
+					<td><label for="liftAccess">Add Lift Accessibility:</label></td>
+					<td><input type="liftAccess" name="liftAccess"></td>
 				</tr>
 				<tr>
-					<td><label for="length">Add Film Length:</label></td>
-					<td><input type="number" name="length"></td>
-				</tr> -->
+					<td><label for="longitude">Add Longitude:</label></td>
+					<td><input type="longitude" name="longitude"></td>
+				</tr>
+				<tr>
+					<td><label for="longitude">Add Latitude:</label></td>
+					<td><input type="longitude" name="longitude"></td>
+				</tr>
 				<tr>
 					<td colspan="2"><button type="submit">Save Ski Run</button></td>
 				</tr>

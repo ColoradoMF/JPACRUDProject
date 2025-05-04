@@ -15,29 +15,54 @@
 	<hr>
 	<c:choose>
 		<c:when test="${not empty skiRun}">
-			<h3>Deets for this ski run:</h3>
+			<h4>Details about this run:</h4>
+			<p>${skiRun.description}</p>
 			<hr>
 			<table>
 				<tr>
-				<td><label for="name">Edit Name:  </label></td>
+				<td><label for="name">Edit Name:   </label></td>
 				<td><input type="text" name="title" id="title" value="${skiRun.name}"></td>
 				</tr>
+				
 				<tr>
-				<td><label for="rating">Edit Rating:</label></td>
-				<td><td><input type="text" name="rating" id="rating" value="${skiRun.rating}"></td></td>
+				<td><label for="rating">Edit Rating: </label></td>
+				<td><input type="text" name="rating" id="rating" value="${skiRun.rating}"></td>
 				</tr>
 				
-				<tr>Ski Resort/Area: ${skiRun.area}</tr>
-				<tr>State: ${skiRun.state}</tr>
-				<tr>Country: ${skiRun.country}</tr>
-				<tr>Accessible from a lift: ${skiRun.liftAccess}</tr>
-				<tr>Lat: ${skiRun.latitude}</tr>
-				<tr>Long: ${skiRun.longitude}</tr>
-			</table>
-			<div>
-				<p>${skiRun.description}</p>
-				<hr>
+				<tr>
+				<td><label for="">Edit Ski Resort/Area:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.area}"></td>
+				</tr>
 				
+				<tr>
+				<td><label for="">Edit State:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.state}"></td>
+				</tr>
+				
+				<tr>
+				<td><label for="">Edit Country:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.country}"></td>
+				</tr>
+				
+				<tr>
+				<td><label for="">Edit accessible from a lift:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.liftAccess}"></td>
+				</tr>
+				
+				<tr>
+				<td><label for="">Edit latitude:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.latitude}"></td>
+				</tr>
+				
+				<tr>
+				<td><label for="">Edit longitude:   </label></td>
+				<td><input type="text" name="" id="" value="${skiRun.longitude}"></td>
+				</tr>
+			</table>
+
+			<hr>
+
+			<div>
 				<input action="deletedSkiRun.do" method="POST" class="btn-info"  name="skiRunId" />
 				<input type="submit" value="Delete Ski Run" />
 			</div>
