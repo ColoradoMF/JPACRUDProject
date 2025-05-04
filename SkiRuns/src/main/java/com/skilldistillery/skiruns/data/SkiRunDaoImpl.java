@@ -62,5 +62,7 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 		em.remove(managedSkiRun);
 		
 	}
+	
+	
 
 }

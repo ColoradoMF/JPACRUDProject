@@ -74,8 +74,11 @@
 			<hr>
 
 			<div>
-				<input action="deletedSkiRun.do" method="POST" class="btn-info"  name="skiRunId" />
-				<input type="submit" value="Delete Ski Run" />
+				<form action="deleteSkiRun.do" method="POST" style="display:inline;" 
+      			onsubmit="return confirm('Are you sure you want to delete this ski run?');">
+  				<input type="hidden" name="skiRunId" value="${skiRun.id}" />
+  				<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+				</form>
 			</div>
 			<div style="width: 20%"><iframe width="20%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=20%25&amp;height=200&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Fav%20Ski%20Runs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 		</c:when>

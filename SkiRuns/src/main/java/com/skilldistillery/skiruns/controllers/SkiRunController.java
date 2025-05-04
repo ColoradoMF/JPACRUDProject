@@ -48,7 +48,15 @@ public class SkiRunController {
 		return "home";
 
 	}
-	// TODO add path for addSkiRun.
+
+	@RequestMapping(path = "deleteSkiRun.do", method = RequestMethod.POST)
+	public String deleteSkiRun(@RequestParam("skiRunId") int skiRunId, Model model) {
+	    skiRunDao.deleteSkiRun(skiRunId);
+	    model.addAttribute("message", "Ski Run deleted successfully!");
+	    model.addAttribute("skiRunList", skiRunDao.findAll());
+	    return "home";
+	}
+
 	// TODO add path for deleteSkiRun.
 	// TODO add path for findSkiRunSearch.
 
