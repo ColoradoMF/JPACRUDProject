@@ -65,8 +65,13 @@ public class SkiRunController {
 	    return "skiRun/show";
 	}
 
-
-	// TODO add path for findSkiRunSearch.
+	@RequestMapping(path = "getSkiRunKeyword.do", method = RequestMethod.GET)
+	public String searchByKeyword(@RequestParam("skiRunKeyword") String keyword, Model model) {
+	    List<SkiRun> results = skiRunDao.findByKeyword(keyword);
+	    model.addAttribute("skiRunList", results);
+	    model.addAttribute("message", "Found " + results.size() + " results for keyword: " + keyword);
+	    return "home";
+	}
 
 }
 

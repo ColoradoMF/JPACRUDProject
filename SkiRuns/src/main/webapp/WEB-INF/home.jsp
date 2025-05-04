@@ -60,6 +60,11 @@
 		</table>
 		<hr>
 
+		<c:if test="${not empty message}">
+  			<div class="alert alert-success">${message}</div>
+		</c:if>
+
+		<hr>
 		</form>
 		<h3>Add a new Ski Run:</h3>
 		<form action="addSkiRun.do" method="POST">
@@ -112,9 +117,6 @@
 					<td colspan="2"><button type="submit">Save Ski Run</button></td>
 				</tr>
 			</table>
-			<c:if test="${not empty message}">
-  				<div class="alert alert-success">${message}</div>
-			</c:if>
 			
 		</form>
 		<script

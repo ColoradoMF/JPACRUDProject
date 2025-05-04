@@ -63,5 +63,12 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 		return managedSkiRun;
 	}
 	
+	@Override
+	public List<SkiRun> findByKeyword(String keyword) {
+	    String jpql = "SELECT s FROM SkiRun s WHERE s.name LIKE :kw OR s.area LIKE :kw OR s.description LIKE :kw";
+	    return em.createQuery(jpql, SkiRun.class)
+	             .setParameter("kw", "%" + keyword + "%")
+	             .getResultList();
+	}
 
 }
