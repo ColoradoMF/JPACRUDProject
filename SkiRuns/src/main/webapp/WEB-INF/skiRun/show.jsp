@@ -12,24 +12,36 @@
 <body>
 	<main class="container-fluid">
 	<a href="home.do">Ski Run Favs Home</a>
+	<hr>
 	<c:choose>
 		<c:when test="${not empty skiRun}">
-			<h3>Deets for the ski run:</h3>
+			<h3>Deets for this ski run:</h3>
 			<hr>
-			<ul>
-				<li><strong>${skiRun.name}</strong></li>
-				<li><emp> Rating: ${skiRun.rating} </emp></li>
-				<li>Ski Resort/Area: ${skiRun.area}</li>
-				<li>State: ${skiRun.state}</li>
-				<li>Country: ${skiRun.country}</li>
-				<li>Accessible from a lift: ${skiRun.liftAccess}</li>
-				<li>Lat: ${skiRun.latitude}</li>
-				<li>Long: ${skiRun.longitude}</li>
-			</ul>
+			<table>
+				<tr>
+				<td><label for="name">Edit Name:  </label></td>
+				<td><input type="text" name="title" id="title" value="${skiRun.name}"></td>
+				</tr>
+				<tr>
+				<td><label for="rating">Edit Rating:</label></td>
+				<td><td><input type="text" name="rating" id="rating" value="${skiRun.rating}"></td></td>
+				</tr>
+				
+				<tr>Ski Resort/Area: ${skiRun.area}</tr>
+				<tr>State: ${skiRun.state}</tr>
+				<tr>Country: ${skiRun.country}</tr>
+				<tr>Accessible from a lift: ${skiRun.liftAccess}</tr>
+				<tr>Lat: ${skiRun.latitude}</tr>
+				<tr>Long: ${skiRun.longitude}</tr>
+			</table>
 			<div>
-				<p>${film.description}</p>
+				<p>${skiRun.description}</p>
 				<hr>
+				
+				<input action="deletedSkiRun.do" method="POST" class="btn-info"  name="skiRunId" />
+				<input type="submit" value="Delete Ski Run" />
 			</div>
+			<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 		</c:when>
 		
 		<c:otherwise>

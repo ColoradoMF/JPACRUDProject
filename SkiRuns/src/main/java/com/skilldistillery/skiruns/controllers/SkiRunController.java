@@ -31,6 +31,10 @@ public class SkiRunController {
 		System.out.println(foundSkiRun);
 		model.addAttribute("skiRun", foundSkiRun);
 		return "skiRun/show";
+		
+	// TODO add path for addSkiRun.
+	// TODO add path for deleteSkiRun.
+	// TODO add path for findSkiRunSearch.
 
 	}
 }

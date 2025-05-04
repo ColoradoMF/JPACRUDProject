@@ -18,36 +18,95 @@
 
 	<main class="container">
 
-		<h1>Favorite Ski Runs</h1>
-
-		<form action="getSkiRun.do" method="GET">
-			Lookup by Ski Run ID #: <input class="btn-info" type="text" name="skiRunId" required />
-			<input type="submit" value="Show SkiRun" />
-		</form>
+		<h1>Favorite Ski Runs Site</h1>
 		<hr>
+		<h4>See a Ski Run by ID # or keyword</h4>
+		<form action="getSkiRun.do" method="GET">
+			<input class="btn-info" type="text" name="skiRunId"	required /> 
+			<input type="submit" value="ID# Search for a Ski Run" />
+		</form>
+		<form action="getSkiRunKeyword.do" method="GET">
+			<input class="btn-info" type="text" name="skiRunKeyword" required />
+			<input type="submit" value="Keyword Search for a Ski Run" />
+		</form>
+
+
+		<hr>
+		<h4>Favorite Ski Runs</h4>
 		<table class="table table-striped table-hover">
 			<thead class="table-dark">
 				<tr>
-					<th>Id</th>
 					<th>Name</th>
 					<th>Area</th>
-					<!-- Other properties here -->
+					<th>State</th>
+					<th>Country</th>
+					<!-- Additional properties here? -->
 				</tr>
 			</thead>
 			<tbody>
 
 				<c:forEach var="skiRun" items="${skiRunList}">
 					<tr>
-						<td>${skiRun.id }</td>
 						<td><a href="getSkiRun.do?skiRunId=${skiRun.id}">
 								${skiRun.name} </a></td>
 						<td>${skiRun.area}</td>
+						<td>${skiRun.state}</td>
+						<td>${skiRun.country}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-</main>
+		<hr>
+
+		</form>
+		<h2>Add a new favorite Ski Run</h2>
+		<form action="addSkiRun.do" method="POST">
+			<table>
+				<tr>
+					<td><label for="title">Add Name: </label></td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td><label for="description">Add Description:</label></td>
+					<td><input type="text" name="description"></td>
+				</tr>
+				<!-- <tr>
+					<td><label for="year">Add Year:</label></td>
+					<td><input type="number" name="year"></td>
+				</tr>
+				<tr>
+					<td><label for="rating">Add Rating:</label></td>
+					<td><input type="text" name="rating"></td>
+				</tr>
+				<tr>
+					<td><label for="languageId">Add Language:</label></td>
+					<td><input type="number" name="languageId"></td>
+				</tr>
+				<tr>
+					<td><label for="rentalRate">Add Rental Rate:</label></td>
+					<td><input type="number" name="rentalRate"></td>
+				</tr>
+				<tr>
+					<td><label for="rentalDuration">Add Rental Duration:</label></td>
+					<td><input type="number" name="rentalDuration"></td>
+				</tr>
+				<tr>
+					<td><label for="replacementCost">Add Replacement Cost:</label></td>
+					<td><input type="number" name="replacementCost"></td>
+				</tr>
+				<tr>
+					<td><label for="length">Add Film Length:</label></td>
+					<td><input type="number" name="length"></td>
+				</tr> -->
+				<tr>
+					<td colspan="2"><button type="submit">Save Ski Run</button></td>
+				</tr>
+			</table>
+		</form>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+			crossorigin="anonymous"></script>
+	</main>
 </body>
 </html>
