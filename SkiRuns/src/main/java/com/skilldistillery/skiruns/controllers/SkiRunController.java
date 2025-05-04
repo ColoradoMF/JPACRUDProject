@@ -35,19 +35,20 @@ public class SkiRunController {
 	}
 		
 	@RequestMapping(path = "addSkiRun.do", method = RequestMethod.POST)
-	private String addSkiRun(Model model,  SkiRun skiRun) {
-		SkiRun addSkiRun = skiRunDao.addSkiRun(skiRun);
-			
-		if (addSkiRun != null) {
-	        model.addAttribute("skiRun", addSkiRun);
-	        model.addAttribute("message", "Ski Run added successfully!");
-	    } else {
-	        model.addAttribute("message", " Failed to add Ski Run. Please try again. ");
+	public String addSkiRun(Model model, SkiRun skiRun) {
+	    // Reject if name is missing
+	    if (skiRun.getName() == null || skiRun.getName().trim().isEmpty()) {
+	        model.addAttribute("message", "Ski Run must have a name.");
+	        model.addAttribute("skiRunList", skiRunDao.findAll());
+	        return "home";
 	    }
-		model.addAttribute("skiRunList", skiRunDao.findAll());
-		return "home";
 
+	    SkiRun added = skiRunDao.addSkiRun(skiRun);
+	    model.addAttribute("message", "Ski Run added successfully!");
+	    model.addAttribute("skiRunList", skiRunDao.findAll());
+	    return "home";
 	}
+
 
 	@RequestMapping(path = "deleteSkiRun.do", method = RequestMethod.POST)
 	public String deleteSkiRun(@RequestParam("skiRunId") int skiRunId, Model model) {

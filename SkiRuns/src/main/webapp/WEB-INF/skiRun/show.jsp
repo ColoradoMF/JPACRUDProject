@@ -88,9 +88,6 @@
 					</table>
 				</form>
 
-
-				<hr>
-
 				<div>
 					<form action="deleteSkiRun.do" method="POST"
 						style="display: inline;"
@@ -99,11 +96,18 @@
 						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 					</form>
 				</div>
-				<div style="width: 20%">
-					<iframe width="20%" height="200" frameborder="0" scrolling="no"
-						marginheight="0" marginwidth="0"
-						src="https://maps.google.com/maps?width=20%25&amp;height=200&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Fav%20Ski%20Runs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-				</div>
+				
+				<hr>
+				
+				<c:if
+					test="${not empty skiRun.latitude && not empty skiRun.longitude}">
+					<h5>Location Map</h5>
+					<iframe width="100%" height="300" frameborder="0" style="border: 0"
+						referrerpolicy="no-referrer-when-downgrade"
+						src="https://www.google.com/maps?q=${skiRun.latitude},${skiRun.longitude}&hl=es;z=14&output=embed"
+						allowfullscreen> </iframe>
+				</c:if>
+
 			</c:when>
 
 			<c:otherwise>
