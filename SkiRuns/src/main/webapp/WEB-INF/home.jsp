@@ -108,7 +108,7 @@
 					 <td><label for="vertical">Vertical (ft):</label></td>
 					 <td><input type="number" name="vertical"></td>
 				</tr>
-				
+				<tr>
 					<td colspan="2"><button type="submit">Save Ski Run</button></td>
 				</tr>
 			</table>

@@ -44,7 +44,9 @@ public class SkiRunController {
 	    } else {
 	        model.addAttribute("message", " Failed to add Ski Run. Please try again. ");
 	    }
-	    return "skiRun/show";
+		model.addAttribute("skiRunList", skiRunDao.findAll());
+		return "home";
+
 	}
 	// TODO add path for addSkiRun.
 	// TODO add path for deleteSkiRun.
