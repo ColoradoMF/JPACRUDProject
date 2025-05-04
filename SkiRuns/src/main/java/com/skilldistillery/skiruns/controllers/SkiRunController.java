@@ -56,8 +56,16 @@ public class SkiRunController {
 	    model.addAttribute("skiRunList", skiRunDao.findAll());
 	    return "home";
 	}
+	
+	@RequestMapping(path = "updateSkiRun.do", method = RequestMethod.POST)
+	public String updateSkiRun(Model model, SkiRun skiRun) {
+	    SkiRun updated = skiRunDao.updateSkiRun(skiRun.getId(), skiRun);
+	    model.addAttribute("skiRun", updated);
+	    model.addAttribute("message", "Ski Run updated successfully!");
+	    return "skiRun/show";
+	}
 
-	// TODO add path for deleteSkiRun.
+
 	// TODO add path for findSkiRunSearch.
 
 }
