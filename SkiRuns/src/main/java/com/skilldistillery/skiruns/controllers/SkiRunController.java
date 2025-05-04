@@ -30,11 +30,25 @@ public class SkiRunController {
 		SkiRun foundSkiRun = skiRunDao.findById(skiRunId);
 		System.out.println(foundSkiRun);
 		model.addAttribute("skiRun", foundSkiRun);
+		model.addAttribute("message", " ski run found " + skiRunId);
 		return "skiRun/show";
+	}
 		
+	@RequestMapping(path = "addSkiRun.do", method = RequestMethod.POST)
+	private String addSkiRun(Model model,  SkiRun skiRun) {
+		SkiRun addSkiRun = skiRunDao.addSkiRun(skiRun);
+			
+		if (addSkiRun != null) {
+	        model.addAttribute("skiRun", addSkiRun);
+	        model.addAttribute("message", "Ski Run added successfully!");
+	    } else {
+	        model.addAttribute("message", " Failed to add Ski Run. Please try again. ");
+	    }
+	    return "skiRun/show";
+	}
 	// TODO add path for addSkiRun.
 	// TODO add path for deleteSkiRun.
 	// TODO add path for findSkiRunSearch.
 
-	}
 }
+

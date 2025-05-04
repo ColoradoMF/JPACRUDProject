@@ -38,6 +38,7 @@
 				<tr>
 					<th>Name</th>
 					<th>Area</th>
+					<th>Rating</th>
 					<th>State</th>
 					<th>Country</th>
 					<!-- Additional properties here? -->
@@ -50,6 +51,7 @@
 						<td><a href="getSkiRun.do?skiRunId=${skiRun.id}">
 								${skiRun.name} </a></td>
 						<td>${skiRun.area}</td>
+						<td>${skiRun.rating}</td>
 						<td>${skiRun.state}</td>
 						<td>${skiRun.country}</td>
 					</tr>
@@ -76,32 +78,44 @@
 				</tr>
 				<tr>
 					<td><label for="area">Add Area:</label></td>
-					<td><input type="area" name="area"></td>
+					<td><input type="text" name="area"></td>
 				</tr>
 				<tr>
 					<td><label for="state">Add State:</label></td>
-					<td><input type="state" name="state"></td>
+					<td><input type="text" name="state"></td>
 				</tr>
 				<tr>
 					<td><label for="country">Add Country:</label></td>
-					<td><input type="country" name="country"></td>
+					<td><input type="text" name="country"></td>
 				</tr>
 				<tr>
 					<td><label for="liftAccess">Add Lift Accessibility:</label></td>
-					<td><input type="liftAccess" name="liftAccess"></td>
+					<td><input type="text" name="liftAccess"></td>
 				</tr>
 				<tr>
 					<td><label for="longitude">Add Longitude:</label></td>
-					<td><input type="longitude" name="longitude"></td>
+					<td><input type="number" name="longitude"></td>
 				</tr>
 				<tr>
-					<td><label for="longitude">Add Latitude:</label></td>
-					<td><input type="longitude" name="longitude"></td>
+					<td><label for="latitude">Add Latitude:</label></td>
+					<td><input type="number" name="latitude"></td>
 				</tr>
 				<tr>
+					<td><label for="imageUrl">Image URL:</label></td>
+					<td><input type="text" name="imageUrl"></td>
+				</tr>
+				<tr>
+					 <td><label for="vertical">Vertical (ft):</label></td>
+					 <td><input type="number" name="vertical"></td>
+				</tr>
+				
 					<td colspan="2"><button type="submit">Save Ski Run</button></td>
 				</tr>
 			</table>
+			<c:if test="${not empty message}">
+  				<div class="alert alert-success">${message}</div>
+			</c:if>
+			
 		</form>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

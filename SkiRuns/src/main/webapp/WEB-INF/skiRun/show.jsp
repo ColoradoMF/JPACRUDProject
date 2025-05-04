@@ -7,17 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Ski Run Deets</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
 	<main class="container-fluid">
 	<a href="home.do">Ski Run Favs Home</a>
 	<hr>
+	
+	<c:if test="${not empty skiRun}"></c:if>
+	
 	<c:choose>
 		<c:when test="${not empty skiRun}">
 			<h4>Details about this run:</h4>
+			<h3>${skiRun.name}</h3>
 			<p>${skiRun.description}</p>
 			<hr>
+			
 			<table>
 				<tr>
 				<td><label for="name">Edit Name:   </label></td>
@@ -66,7 +77,7 @@
 				<input action="deletedSkiRun.do" method="POST" class="btn-info"  name="skiRunId" />
 				<input type="submit" value="Delete Ski Run" />
 			</div>
-			<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+			<div style="width: 20%"><iframe width="20%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=20%25&amp;height=200&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Fav%20Ski%20Runs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 		</c:when>
 		
 		<c:otherwise>
@@ -77,7 +88,10 @@
 		
 	</c:choose>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+	crossorigin="anonymous"></script>
 </main>
 </body>
 </html>
