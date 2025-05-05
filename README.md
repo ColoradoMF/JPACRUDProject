@@ -33,22 +33,38 @@ This project is a web application for managing a collection of ski runs. It supp
 ## 📁 File Structure
 
 JPACRUDProject/
+│ 
 │
 ├── DB/
+│ │
 │ └── skirunsdb.mwb
+│
 ├── src/
+│ │ 
 │ ├── main/
+│ │ 
 │ │ ├── java/
+│ │ │ │ 
 │ │ │ └── com.skilldistillery.jpacrud/...
+│ │ │ 
 │ │ ├── resources/
+│ │ │ │ 
 │ │ │ └── META-INF/persistence.xml
+│ │ │
 │ │ └── webapp/
+│ │ │
 │ │ ├── WEB-INF/
+│ │ │
 │ │ └── static/
+│ │
 │ └── test/
+│ │
 │ └── java/
+│ │
 │ └── ...
+│
 └── build.gradle
+
 
 
 ---
