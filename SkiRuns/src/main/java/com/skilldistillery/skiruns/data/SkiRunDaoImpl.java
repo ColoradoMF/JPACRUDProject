@@ -40,8 +40,9 @@ public class SkiRunDaoImpl implements SkiRunDAO {
 	@Override
 	public void deleteSkiRun(int Id) {
 		SkiRun managedSkiRun = em.find(SkiRun.class, Id);		
-		
-		em.remove(managedSkiRun);
+		if (managedSkiRun != null) {
+		    em.remove(managedSkiRun);
+		}
 		
 	}
 	

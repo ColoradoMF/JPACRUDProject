@@ -42,9 +42,15 @@ public class SkiRunTest {
 	}
 
 	@Test
-	void test_SkiRun_entity_mapping() {
+	void test_SkiRun_entity_mapping1() {
 		assertNotNull(run);
 		assertEquals("Spaulding Bowl", run.getName());
+	}
+	
+	@Test
+	void test_SkiRun_entity_mapping2() {
+		assertNotNull(run);
+		assertEquals("Copper Mountain", run.getArea());
 	}
 
 }

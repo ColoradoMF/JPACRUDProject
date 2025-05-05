@@ -29,100 +29,92 @@
 				<p>${skiRun.description}</p>
 				<hr>
 
+<h5>Edit Ski Run Details</h5>
 
-				<div class="row">
-					<!-- Left: Form table -->
-					<div class="col-md-8">
-						<form action="updateSkiRun.do" method="POST">
-							<input type="hidden" name="id" value="${skiRun.id}" />
-							<table class="table">
-								<tr>
-									<td><label for="name">Edit Name:</label></td>
-									<td><input type="text" name="name" value="${skiRun.name}" /></td>
-								</tr>
-								<tr>
-									<td><label for="rating">Edit Rating:</label></td>
-									<td><input type="text" name="rating"
-										value="${skiRun.rating}" /></td>
-								</tr>
-								<tr>
-									<td><label for="area">Edit Area:</label></td>
-									<td><input type="text" name="area" value="${skiRun.area}" /></td>
-								</tr>
-								<tr>
-									<td><label for="state">Edit State:</label></td>
-									<td><input type="text" name="state"
-										value="${skiRun.state}" /></td>
-								</tr>
-								<tr>
-									<td><label for="country">Edit Country:</label></td>
-									<td><input type="text" name="country"
-										value="${skiRun.country}" /></td>
-								</tr>
-								<tr>
-									<td><label for="liftAccess">Edit Lift Access:</label></td>
-									<td><input type="text" name="liftAccess"
-										value="${skiRun.liftAccess}" /></td>
-								</tr>
-								<tr>
-									<td><label for="latitude">Edit Latitude:</label></td>
-									<td><input type="text" name="latitude"
-										value="${skiRun.latitude}" /></td>
-								</tr>
-								<tr>
-									<td><label for="longitude">Edit Longitude:</label></td>
-									<td><input type="text" name="longitude"
-										value="${skiRun.longitude}" /></td>
-								</tr>
-								<tr>
-									<td><label for="imageUrl">Edit Image URL:</label></td>
-									<td><input type="text" name="imageUrl"
-										value="${skiRun.imageUrl}" /></td>
-								</tr>
-								<tr>
-									<td><label for="vertical">Edit Vertical:</label></td>
-									<td><input type="number" name="vertical"
-										value="${skiRun.vertical}" /></td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<button type="submit" class="btn btn-primary btn-sm">Update</button>
-										<a href="home.do" class="btn btn-secondary btn-sm">Cancel</a>
-									</td>
-								</tr>
-							</table>
+<div class="row">
+  <!-- Left: Form table -->
+  <div class="col-md-8">
+    <form action="updateSkiRun.do" method="POST">
+      <input type="hidden" name="id" value="${skiRun.id}" />
+      <table class="table">
+        <tr>
+          <td><label for="name">Edit Name:</label></td>
+          <td><input type="text" name="name" value="${skiRun.name}" /></td>
+        </tr>
+        <tr>
+          <td><label for="rating">Edit Rating:</label></td>
+          <td><input type="text" name="rating" value="${skiRun.rating}" /></td>
+        </tr>
+        <tr>
+          <td><label for="area">Edit Area:</label></td>
+          <td><input type="text" name="area" value="${skiRun.area}" /></td>
+        </tr>
+        <tr>
+          <td><label for="state">Edit State:</label></td>
+          <td><input type="text" name="state" value="${skiRun.state}" /></td>
+        </tr>
+        <tr>
+          <td><label for="country">Edit Country:</label></td>
+          <td><input type="text" name="country" value="${skiRun.country}" /></td>
+        </tr>
+        <tr>
+          <td><label for="liftAccess">Edit Lift Access:</label></td>
+          <td><input type="text" name="liftAccess" value="${skiRun.liftAccess}" /></td>
+        </tr>
+        <tr>
+          <td><label for="latitude">Edit Latitude:</label></td>
+          <td><input type="text" name="latitude" value="${skiRun.latitude}" /></td>
+        </tr>
+        <tr>
+          <td><label for="longitude">Edit Longitude:</label></td>
+          <td><input type="text" name="longitude" value="${skiRun.longitude}" /></td>
+        </tr>
+        <tr>
+          <td><label for="imageUrl">Edit Image URL:</label></td>
+          <td><input type="text" name="imageUrl" value="${skiRun.imageUrl}" /></td>
+        </tr>
+        <tr>
+          <td><label for="vertical">Edit Vertical:</label></td>
+          <td><input type="number" name="vertical" value="${skiRun.vertical}" /></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            <a href="home.do" class="btn btn-secondary btn-sm">Cancel</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <!-- Right: Image preview -->
+  <div class="col-md-4">
+    <c:if test="${not empty skiRun.imageUrl}">
+      <img src="${skiRun.imageUrl}" alt="${skiRun.name}" class="img-fluid rounded border" />
+    </c:if>
+  </div>
+</div>
+
+
+					<div>
+						<form action="deleteSkiRun.do" method="POST"
+							style="display: inline;"
+							onsubmit="return confirm('Are you sure you want to delete this ski run?');">
+							<input type="hidden" name="skiRunId" value="${skiRun.id}" />
+							<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 						</form>
 					</div>
 
-					<!-- Right: Image preview -->
-					<div class="col-md-4">
-						<c:if test="${not empty skiRun.imageUrl}">
-							<img src="${skiRun.imageUrl}" alt="${skiRun.name}"
-								class="img-fluid rounded border" />
-						</c:if>
-					</div>
-				</div>
+					<hr>
 
-
-				<div>
-					<form action="deleteSkiRun.do" method="POST"
-						style="display: inline;"
-						onsubmit="return confirm('Are you sure you want to delete this ski run?');">
-						<input type="hidden" name="skiRunId" value="${skiRun.id}" />
-						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
-					</form>
-				</div>
-
-				<hr>
-
-				<c:if
-					test="${not empty skiRun.latitude && not empty skiRun.longitude}">
-					<h5>Location Map</h5>
-					<iframe width="100%" height="300" frameborder="0" style="border: 0"
-						referrerpolicy="no-referrer-when-downgrade"
-						src="https://www.google.com/maps?q=${skiRun.latitude},${skiRun.longitude}&hl=es;z=14&output=embed"
-						allowfullscreen> </iframe>
-				</c:if>
+					<c:if
+						test="${not empty skiRun.latitude && not empty skiRun.longitude}">
+						<h5>Location Map</h5>
+						<iframe width="100%" height="300" frameborder="0"
+							style="border: 0" referrerpolicy="no-referrer-when-downgrade"
+							src="https://www.google.com/maps?q=${skiRun.latitude},${skiRun.longitude}&hl=es;z=14&output=embed"
+							allowfullscreen> </iframe>
+					</c:if>
 			</c:when>
 
 			<c:otherwise>
